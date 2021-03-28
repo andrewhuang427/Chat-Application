@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+    <title>ChatApp</title>
+</head>
+
+<body>
+    <div class="chat-container">
+        <header class="d-flex chat-header justify-content-between shadow">
+            <h1>ChatApp</h1>
+            <div class="header-container">You are signed in as:
+                <h4 id=username>#</h4>
+            </div>
+            <div class="header-container">You are currently in:
+                <h4 id=room-name>#</h4>
+            </div>
+            <a href="index.html" class="btn btn-outline-light">Leave Chat</a>
+        </header>
+        <main class="chat-main">
+            <div class="chat-sidebar">
+                <div class="sidebar-container">
+                    <h4>Users in Current Room</h4>
+                    <div><small>Click on a user's name to send them a direct message. If you are the room owner, you can
+                            also kick, ban, or grant privileges to users by clicking on their name.</small></div>
+                    <ul id="users">
+                    </ul>
+                </div>
+                <div class="sidebar-container">
+                    <h4>Rooms</h4>
+                    <div><small>Click room name tabs to join individual room. If room is password protected, enter
+                            password into prompt window.</small></div>
+                    <ul id="rooms">
+                        <li id="Universal">Universal<br>Created by ChatApp Bot</li>
+                    </ul>
+                </div>
+                <div class="sidebar-container">
+                    <h4>Create New Room</h4>
+                    <div class="pt-3 pb-5"><small>User to following form to create a new room. If you want, use the
+                            toggle switch to make room
+                            password protected</small></div>
+                    <form id="new-room-form">
+                        <label>Room Name:</label>
+                        <input class="roomNameInput text-dark" type="text" placeholder="Enter Room Name" id="newRoom">
+                        <div class="pwdProtected">
+                            <label>Password Protected?
+                            </label>
+                            <div class="">
+                                <label class="switch">
+                                    <input type="checkbox" id="pwdProtected">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-outline-light my-3">Create</button>
+                    </form>
+                </div>
+            </div>
+            <div class="chat-messages" id="chat">
+            </div>
+        </main>
+        <div class="chat-form-container">
+            <form id="new-message-form">
+                <input id="message" type="text" placeholder="Enter Message" required autocomplete="off" />
+                <button type="submit" class="btn btn-outline-light">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" id="modal-buttons">
+                    <div class="modal-button" data-victim="" style="display: none;" id="kick">Kick User</div>
+                    <div class="modal-button" data-victim="" style="display: none;" id="ban">Ban User</div>
+                    <div class="modal-button" data-user="" style="display: none;" id="grant">Grant Editor Privileges
+                    </div>
+                    <div class="modal-button" data-receiver="" id="dm">Direct Message User</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
+        integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4=" crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/client.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "chat_app",
+  "version": "1.0.0",
+  "description": "Realtime chat app",
+  "main": "chat-server.js",
+  "scripts": {
+    "test": "node chat-server.js",
+    "dev": "nodemon chat-server.js",
+    "start" : "node chat-server.js"
+  },
+  "author": "Andrew Huang",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "socket.io": "^3.0.1"
+  }
+}

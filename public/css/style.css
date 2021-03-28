@@ -1,0 +1,292 @@
+body {
+    font-family: 'Rubik', sans-serif;
+}
+
+:root {
+    --dark: rgb(44, 44, 44);
+    --secondary: #3d3d3d;
+    --sidebar-container: #292929;
+    --light: #e6e9ff;
+    --sidebar-card: #879c87;
+    --message-me: #c0e0c0;
+    --dm: rgb(149, 124, 182);
+    --success: rgb(65, 192, 76);
+}
+
+/* ----- Login Page ----- */
+
+.join-container {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    color: white;
+    background-color: var(--dark);
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.user-form label {
+    margin-right: 10px;
+}
+
+.user-form input {
+    margin-right: 10px;
+}
+
+/* ----- Chat-----*/
+
+.chat-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+    background: #fff;
+    overflow: hidden;
+}
+
+.chat-header {
+    background: var(--dark);
+    color: #fff;
+    padding: 15px;
+    align-items: center;
+}
+
+.header-container {
+    font-size: 20px;
+    display: inline-block;
+}
+
+#room-name, #username {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--sidebar-card);
+    margin-left: 10px;
+}
+
+.chat-main {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.chat-sidebar {
+    background: var(--secondary);
+    color: #fff;
+    padding: 20px 20px;
+    padding-bottom: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 650px;
+}
+
+/* width */
+
+.chat-sidebar::-webkit-scrollbar {
+    width: 15px;
+}
+
+/* Track */
+
+.chat-sidebar::-webkit-scrollbar-track {
+    background: #888;
+}
+
+/* Handle */
+
+.chat-sidebar::-webkit-scrollbar-thumb {
+    background: #000000;
+}
+
+/* Handle on hover */
+
+.chat-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.chat-sidebar h5 {
+    font-size: 15px;
+    background: var(--sidebar-card);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.sidebar-container {
+    background-color: var(--sidebar-container);
+    margin: 25px auto;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.chat-sidebar ul li {
+    padding: 10px 0;
+}
+
+.chat-sidebar ul {
+    padding: 0;
+    list-style: none;
+}
+
+.chat-sidebar li {
+    background-color: var(--sidebar-card);
+    margin: 10px auto;
+    text-align: center;
+}
+
+.chat-sidebar li:hover {
+    background-color: var(--light);
+    color: var(--dark);
+    cursor: pointer;
+}
+
+#users li i:hover {
+    color: red;
+}
+
+.chat-messages {
+    padding: 30px;
+    max-height: 650px;
+    overflow-y: scroll;
+    background-color: var(--secondary);
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: var(--light);
+    border-radius: 5px;
+    overflow-wrap: break-word;
+}
+
+.message .meta {
+    font-size: 15px;
+    font-weight: bold;
+    opacity: 0.8;
+    margin-bottom: 8px;
+}
+
+.me {
+    background-color: var(--message-me);
+}
+
+.dm {
+    background-color: var(--dm);
+    color: var(--light);
+}
+
+.chat-form-container {
+    padding: 20px 30px;
+    background-color: var(--dark);
+}
+
+.chat-form-container form {
+    display: flex;
+}
+
+.chat-form-container input[type='text'] {
+    font-size: 16px;
+    padding: 5px;
+    height: 40px;
+    flex: 1;
+}
+
+.roomNameInput {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+}
+
+.pwdProtected {
+    margin-top: 15px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 4px;
+    bottom: 2.5px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: var(--success);
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px var(--success);
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(17px);
+    -ms-transform: translateX(17px);
+    transform: translateX(17px);
+}
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* ----- Modal ----- */
+
+.modal-button {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    margin: 10px auto;
+    background-color: rgb(96, 150, 182);
+    border-radius: 5px;
+    color: white;
+}
+
+.modal-button:hover {
+    cursor: pointer;
+    background-color: rgb(64, 106, 131);
+    ;
+}
